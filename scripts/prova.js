@@ -39,4 +39,5 @@ class ItemMagico{
         this.defesa= defesa;
     }
     
+    
 }
