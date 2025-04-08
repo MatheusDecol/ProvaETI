@@ -48,6 +48,14 @@ class Personagem{
 
 class ItemMagico{
     constructor (id, nome, tipo, forca, defesa) {
+        if(forca < 0 || defesa < 0 || forca > 10 || defesa > 10){
+            throw new error("A força e defesa devem ter valores de 0 a 10");
+        }
+
+        if(forca == 0 && defesa == 0){
+            throw new error("Um item não pode ter foça e defesas iguais a zero");
+        }
+
         this.id = id;
         this.nome = nome;
         this.tipo = tipo;
