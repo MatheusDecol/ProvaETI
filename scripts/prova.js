@@ -29,3 +29,7 @@ class Personagem{
     
 
 }
+
+class ItemMagico{
+
+}
