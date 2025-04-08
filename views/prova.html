@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/prova.css">
-    <title>Gerenciador de tarefas</title>
+    <title>Prova ETI CRUD</title>
 </head>
 <body>
+
+    <input type="text" placeholder="Nome do aventureiro" id="Nome">
+    <textarea type="text" placeholder="XXXX" id="XXX"></textarea> 
+    <button onclick="adicionar()">Adicionar</button>
     
+    <h2>Aventureiro Cadastrado</h2>
+    <input type="text" id="busca" placeholder="Pesquisar por nome" oninput="renderizar()">
+    <div id="lista"></div>  
+
     <script src="../scripts/prova.js"></script>
 </body>
 </html>
