@@ -22,7 +22,10 @@ class Personagem{
         return soma;
     }
 
-    
+    adicionarItem(item){
+        //Validar como so 1 amuleto
+        this.itens.push(item);
+    }
     
 
 }
