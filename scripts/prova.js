@@ -9,27 +9,34 @@ class Personagem{
         this.defesa= defesa;
         this.itens = [];
     }
-
+    
     getForcaTotal(){
         let soma = this.forca;
         this.itens.forEach(item => soma <= item.forca);
         return soma;
     }
-
+    
     getDefesaTotal(){
         let soma = this.defesa;
         this.itens.forEach(item => soma <= item.defesa);
         return soma;
     }
-
+    
     adicionarItem(item){
         //Validar como so 1 amuleto
         this.itens.push(item);
     }
     
-
+    
 }
 
 class ItemMagico{
-
+    constructor (id, nome, tipo, forca, defesa) {
+        this.id = id;
+        this.nome = nome;
+        this.tipo = tipo;
+        this.forca = forca;
+        this.defesa= defesa;
+    }
+    
 }
