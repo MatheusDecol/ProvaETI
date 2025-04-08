@@ -27,7 +27,13 @@ class Personagem{
     }
     
     adicionarItem(item){
-        //Validar como so 1 amuleto
+        if(item.tipo == "Amuleto"){
+            const temAmuleto =this.itens.soma(i =>i.tipo == "Amuleto");
+            if(temAmuleto){
+                throw new error("O Personagem ja tem amuleto");
+                
+            };
+        }
         this.itens.push(item);
     }
     
