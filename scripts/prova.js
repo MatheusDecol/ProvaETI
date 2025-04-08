@@ -12,7 +12,9 @@ class Personagem{
     
     getForcaTotal(){
         let soma = this.forca;
-        this.itens.forEach(item => soma <= item.forca);
+        this.itens.forEach(item =>{
+            soma += item.forca;
+        });
         return soma;
     }
     
