@@ -16,7 +16,13 @@ class Personagem{
         return soma;
     }
 
-   
+    getDefesaTotal(){
+        let soma = this.defesa;
+        this.itens.forEach(item => soma <= item.defesa);
+        return soma;
+    }
+
+    
     
 
 }
