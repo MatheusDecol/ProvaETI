@@ -105,4 +105,9 @@ function adicionarPersonagem() {
     const level = parseInt(document.getElementById("level").value);
     const forca = parseInt(document.getElementById("forca").value);
     const defesa = parseInt(document.getElementById("defesa").value);
+  
+    if (!nome || !nomeAventureiro || !classe || isNaN(level) || isNaN(forca) || isNaN(defesa)) {
+      alert("Preencha todos os campos corretamente.");
+      return;
+    }
 }
