@@ -26,6 +26,25 @@
     <input type="number" id="defesa" placeholder="Defesa" min="0" max="10">
     <button onclick="adicionarPersonagem()">Cadastrar</button>
 
+    <h2>Cadastrar Item Mágico</h2>
+    <input type="text" id="nomeItem" placeholder="Nome do item">
+
+    <select id="tipoItem">
+        <option value="">Tipo do Item</option>
+        <option value="Arma">Arma</option>
+        <option value="Armadura">Armadura</option>
+        <option value="Amuleto">Amuleto</option>
+    </select>
+
+    <input type="number" id="forcaItem" placeholder="Força" min="0" max="10">
+    <input type="number" id="defesaItem" placeholder="Defesa" min="0" max="10">
+    <select id="personagemItem">
+        <option value="">Selecionar Personagem</option>
+    </select>
+    
+    <button onclick="adicionarItemMagico()">Adicionar Item</button>
+
+
     <script src="../scripts/prova.js"></script>
 </body>
 </html>
