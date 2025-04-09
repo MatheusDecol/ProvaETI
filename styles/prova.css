@@ -87,6 +87,7 @@ span{
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 0.8rem;
+    max-width: 30rem;
     background-color: #f9f9f9;
   }
   
