@@ -171,3 +171,8 @@ function adicionarItemMagico(){
     }
     
 }
+
+function preencherSelectPersonagens() {
+    
+}
+  
