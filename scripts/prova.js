@@ -129,5 +129,7 @@ function adicionarPersonagem() {
     document.getElementById("level").value = "";
     document.getElementById("forca").value = "";
     document.getElementById("defesa").value = "";
+
+    renderizarPersonagens();
 }
 
