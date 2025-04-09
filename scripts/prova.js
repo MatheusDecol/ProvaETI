@@ -74,6 +74,8 @@ class ItemMagico{
     
 }
 
+// ===================================================================================================================== \\
+
 let personagens = [];
 
 function carregarPersonagens() {
@@ -171,6 +173,8 @@ function renderizarPersonagens(){
     container.appendChild(div);
     });
 }
+
+function removerItemDoPersonagem(personagemId, itemId) {}
 
 function adicionarItemMagico(){
     const nome = document.getElementById("nomeItem").value.trim();
