@@ -75,3 +75,8 @@ class ItemMagico{
 }
 
 let personagens = [];
+
+function carregarPersonagens() {
+    const dados = localStorage.getItem("personagens");
+    
+  }
