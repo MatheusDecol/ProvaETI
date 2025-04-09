@@ -96,9 +96,14 @@ function carregarPersonagens() {
       }
 }
 
+
+// ===================================================================================================================== \\
+
 function salvarPersonagens() {
     localStorage.setItem("personagens", JSON.stringify(personagens));
 }
+
+// ===================================================================================================================== \\
 
 function adicionarPersonagem() {
     const nome = document.getElementById("nome").value.trim();
@@ -134,6 +139,8 @@ function adicionarPersonagem() {
 
     renderizarPersonagens();
 }
+
+// ===================================================================================================================== \\
 
 function renderizarPersonagens(){
     const container = document.getElementById("listaPersonagens");
@@ -174,6 +181,8 @@ function renderizarPersonagens(){
     });
 }
 
+// ===================================================================================================================== \\
+
 function removerItemDoPersonagem(personagemId, itemId) {
     const personagem = personagens.find(p => p.id === personagemId);
   if (personagem) {
@@ -182,6 +191,22 @@ function removerItemDoPersonagem(personagemId, itemId) {
     renderizarPersonagens();
   }
 }
+
+// ===================================================================================================================== \\
+
+function preencherSelectPersonagens() {
+    const select = document.getElementById("personagemItem");
+    select.innerHTML = `<option value="">Selecionar Personagem</option>`;
+
+    personagens.forEach(p => {
+        const option = document.createElement("option");
+        option.value = p.id;
+        option.textContent = `${p.nomeAventureiro} (Classe: ${p.classe})`;
+        select.appendChild(option);
+    });
+}
+
+// ===================================================================================================================== \\
 
 function adicionarItemMagico(){
     const nome = document.getElementById("nomeItem").value.trim();
@@ -222,17 +247,8 @@ function adicionarItemMagico(){
     
 }
 
-function preencherSelectPersonagens() {
-    const select = document.getElementById("personagemItem");
-    select.innerHTML = `<option value="">Selecionar Personagem</option>`;
+// ===================================================================================================================== \\
 
-    personagens.forEach(p => {
-        const option = document.createElement("option");
-        option.value = p.id;
-        option.textContent = `${p.nomeAventureiro} (Classe: ${p.classe})`;
-        select.appendChild(option);
-    });
-}
   
 
 carregarPersonagens();
