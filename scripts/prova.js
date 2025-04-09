@@ -97,3 +97,12 @@ function carregarPersonagens() {
 function salvarPersonagens() {
     localStorage.setItem("personagens", JSON.stringify(personagens));
 }
+
+function adicionarPersonagem() {
+    const nome = document.getElementById("nome").value.trim();
+    const nomeAventureiro = document.getElementById("nomeAventureiro").value.trim();
+    const classe = document.getElementById("classe").value;
+    const level = parseInt(document.getElementById("level").value);
+    const forca = parseInt(document.getElementById("forca").value);
+    const defesa = parseInt(document.getElementById("defesa").value);
+}
