@@ -139,4 +139,35 @@ function adicionarItemMagico(){
     const forca = parseInt(document.getElementById("forcaItem").value);
     const defesa = parseInt(document.getElementById("defesaItem").value);
     const personagemId = parseInt(document.getElementById("personagemItem").value);
+
+    if (!nome || !tipo || isNaN(forca) || isNaN(defesa) || isNaN(personagemId)) {
+        alert("Preencha todos os campos corretamente.");
+        return;
+    }
+
+    try {
+        const item = new ItemMagico(Date.now(), nome, tipo, forca, defesa);
+        const personagem = personagens.find(p => p.id === personagemId);
+    
+    if (!personagem) {
+        alert("Personagem não encontrado.");
+        return;
+    }
+    
+    personagem.adicionarItem(item);
+    salvarPersonagens();
+    alert("Item adicionado ao personagem com sucesso!");
+    
+    document.getElementById("nomeItem").value = "";
+    document.getElementById("tipoItem").value = "";
+    document.getElementById("forcaItem").value = "";
+    document.getElementById("defesaItem").value = "";
+    document.getElementById("personagemItem").value = "";
+    
+    renderizarPersonagens(); 
+
+    } catch (erro) {
+        alert("Erro ao adicionar item: " + erro.message);
+    }
+    
 }
