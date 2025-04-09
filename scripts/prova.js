@@ -173,6 +173,14 @@ function adicionarItemMagico(){
 }
 
 function preencherSelectPersonagens() {
-    
+    const select = document.getElementById("personagemItem");
+    select.innerHTML = `<option value="">Selecionar Personagem</option>`;
+
+    personagens.forEach(p => {
+        const option = document.createElement("option");
+        option.value = p.id;
+        option.textContent = `${p.nomeAventureiro} (Classe: ${p.classe})`;
+        select.appendChild(option);
+    });
 }
   
