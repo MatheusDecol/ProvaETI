@@ -81,3 +81,12 @@ span{
     font-size: 1.8rem;
     max-width: 30rem;
 }
+
+.personagem {
+    border: 0.1 rem solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.8rem;
+    background-color: #f9f9f9;
+  }
+  
