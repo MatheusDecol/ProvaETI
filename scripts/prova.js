@@ -184,3 +184,7 @@ function preencherSelectPersonagens() {
     });
 }
   
+
+carregarPersonagens();
+preencherSelectPersonagens();
+renderizarPersonagens();
