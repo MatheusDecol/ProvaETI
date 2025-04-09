@@ -60,6 +60,10 @@ class ItemMagico{
             throw new Error("Itens do tipo Arma devem ter defesa igual a 0.");
         }
 
+        if (tipo === "Armadura" && forca !== 0) {
+            throw new Error("Itens do tipo Armadura devem ter força igual a 0.");
+        }
+
         this.id = id;
         this.nome = nome;
         this.tipo = tipo;
