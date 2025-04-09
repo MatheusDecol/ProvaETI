@@ -92,4 +92,8 @@ function carregarPersonagens() {
           return personagem;
         });
       }
-  }
+}
+
+function salvarPersonagens() {
+    localStorage.setItem("personagens", JSON.stringify(personagens));
+}
