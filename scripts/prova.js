@@ -136,7 +136,11 @@ function adicionarPersonagem() {
 function renderizarPersonagens(){
     const container = document.getElementById("listaPersonagens");
     container.innerHTML = "";
-    
+
+    if (personagens.length === 0) {
+        container.innerHTML = "<p>Nenhum personagem cadastrado.</p>";
+        return;
+      }
 }
 
 function adicionarItemMagico(){
