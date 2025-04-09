@@ -38,7 +38,7 @@ class Personagem{
     }
     
     removerItemPorId(itemId){
-        this.item = this.itens.filter(item => item.id !== itemId);
+        this.itens = this.itens.filter(item => item.id !== itemId);
     }
     
     buscarAmuleto(){
