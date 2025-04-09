@@ -84,6 +84,11 @@ function carregarPersonagens() {
           const personagem = new Personagem(
             p.id, p.nome, p.nomeAventureiro, p.classe, p.level, p.forca, p.defesa
           );
+          if (p.itens) {
+            p.itens.forEach(i => {
+              personagem.adicionarItem(new ItemMagico(i.id, i.nome, i.tipo, i.forca, i.defesa));
+            });
+          }
           return personagem;
         });
       }
