@@ -115,7 +115,19 @@ function adicionarPersonagem() {
         alert("A soma de força e defesa deve ser exatamente 10.");
         return;
     }
-
     
+    const id = Date.now();
+    const novoPersonagem = new Personagem(id, nome, nomeAventureiro, classe, level, forca, defesa);
+    
+    personagens.push(novoPersonagem);
+    salvarPersonagens();
+    alert("Personagem cadastrado com sucesso!");
+    
+    document.getElementById("nome").value = "";
+    document.getElementById("nomeAventureiro").value = "";
+    document.getElementById("classe").value = "";
+    document.getElementById("level").value = "";
+    document.getElementById("forca").value = "";
+    document.getElementById("defesa").value = "";
 }
 
