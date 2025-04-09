@@ -56,6 +56,10 @@ class ItemMagico{
             throw new error("Um item não pode ter foça e defesas iguais a zero");
         }
 
+        if (tipo === "Arma" && defesa !== 0) {
+            throw new Error("Itens do tipo Arma devem ter defesa igual a 0.");
+        }
+
         this.id = id;
         this.nome = nome;
         this.tipo = tipo;
