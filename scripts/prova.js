@@ -133,6 +133,10 @@ function adicionarPersonagem() {
     renderizarPersonagens();
 }
 
+function renderizarPersonagens(){
+    
+}
+
 function adicionarItemMagico(){
     const nome = document.getElementById("nomeItem").value.trim();
     const tipo = document.getElementById("tipoItem").value;
