@@ -141,6 +141,35 @@ function renderizarPersonagens(){
         container.innerHTML = "<p>Nenhum personagem cadastrado.</p>";
         return;
       }
+
+    personagens.forEach((p, index) => {
+    const div = document.createElement("div");
+    div.className = "personagem";
+    div.innerHTML = `
+        <h3>${p.nomeAventureiro} (${p.classe})</h3>
+        <p><strong>Level:</strong> ${p.level}</p>
+        <p><strong>Força Total:</strong> ${p.getForcaTotal()}</p>
+        <p><strong>Defesa Total:</strong> ${p.getDefesaTotal()}</p>
+        <p><strong>Itens:</strong></p>
+        <ul>
+        ${
+            p.itens.length > 0
+            ? p.itens
+                .map(
+                    item =>
+                    `<li>${item.nome} (${item.tipo}) 
+                        <button onclick="removerItemDoPersonagem(${p.id}, ${item.id})">Remover Item</button>
+                    </li>`
+                )
+                .join("")
+            : "<li>Sem itens</li>"
+        }
+        </ul>
+        <button onclick="removerPersonagem(${p.id})">Remover Personagem</button>
+    `;
+
+    container.appendChild(div);
+    });
 }
 
 function adicionarItemMagico(){
