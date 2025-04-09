@@ -78,5 +78,13 @@ let personagens = [];
 
 function carregarPersonagens() {
     const dados = localStorage.getItem("personagens");
-    
+    if (dados) {
+        const lista = JSON.parse(dados);
+        personagens = lista.map(p => {
+          const personagem = new Personagem(
+            p.id, p.nome, p.nomeAventureiro, p.classe, p.level, p.forca, p.defesa
+          );
+          return personagem;
+        });
+      }
   }
