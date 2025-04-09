@@ -134,5 +134,9 @@ function adicionarPersonagem() {
 }
 
 function adicionarItemMagico(){
-    
+    const nome = document.getElementById("nomeItem").value.trim();
+    const tipo = document.getElementById("tipoItem").value;
+    const forca = parseInt(document.getElementById("forcaItem").value);
+    const defesa = parseInt(document.getElementById("defesaItem").value);
+    const personagemId = parseInt(document.getElementById("personagemItem").value);
 }
