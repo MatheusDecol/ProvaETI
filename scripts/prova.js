@@ -134,6 +134,8 @@ function adicionarPersonagem() {
 }
 
 function renderizarPersonagens(){
+    const container = document.getElementById("listaPersonagens");
+    container.innerHTML = "";
     
 }
 
