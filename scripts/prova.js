@@ -174,7 +174,14 @@ function renderizarPersonagens(){
     });
 }
 
-function removerItemDoPersonagem(personagemId, itemId) {}
+function removerItemDoPersonagem(personagemId, itemId) {
+    const personagem = personagens.find(p => p.id === personagemId);
+  if (personagem) {
+    personagem.removerItemPorId(itemId);
+    salvarPersonagens();
+    renderizarPersonagens();
+  }
+}
 
 function adicionarItemMagico(){
     const nome = document.getElementById("nomeItem").value.trim();
