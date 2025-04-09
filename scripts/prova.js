@@ -73,3 +73,5 @@ class ItemMagico{
     
     
 }
+
+let personagens = [];
