@@ -110,4 +110,12 @@ function adicionarPersonagem() {
       alert("Preencha todos os campos corretamente.");
       return;
     }
+
+    if (forca + defesa !== 10) {
+        alert("A soma de força e defesa deve ser exatamente 10.");
+        return;
+    }
+
+    
 }
+
