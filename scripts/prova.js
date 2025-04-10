@@ -345,6 +345,16 @@ function listarTodosItensMagicos(){
         container.innerHTML = "<p>Nenhum item mágico cadastrado.</p>";
         return;
     }
+
+    container.innerHTML = `
+    <h3>Todos os Itens Mágicos</h3>
+    <ul>
+      ${todosItens.map(item => `
+        <li><strong>${item.nome}</strong> (${item.tipo}) - Força: ${item.forca}, Defesa: ${item.defesa}, Aventureiro: ${item.personagem}</li>
+      `).join("")}
+    </ul>
+  `;
+
 }
 
 // ===================================================================================================================== \\
