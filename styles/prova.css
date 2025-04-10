@@ -20,14 +20,16 @@ body {
     margin: auto;
   }
 
-input, textarea{
-    display:flex;
+input, select, textarea {
+    display: block;
     margin-bottom: 1rem;
-    padding: 0.8rem;
-    width: 30rem;
-    font-size: 2rem;
-    border: 0.5rem solid #ccc;
-    border-radius: 0.4rem;
+    padding: 1rem;
+    width: 100%;
+    font-size: 1.6rem;
+    border: 2px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: #fdf6e3;
+    color: #000;
 }
 
 button {
@@ -55,12 +57,12 @@ button:nth-of-type(2){
     background-color: rgb(255, 47, 47);
 }
 
-h2{
-    margin-top: 2rem;
+h2 {
     font-size: 2.4rem;
-    font-weight: 300;
-    color: rgb(255, 255, 255);
-}
+    color: #f9d923;
+    margin-top: 3rem;
+    text-shadow: 0.1rem 0.1rem 0.2rem #000;
+  }
 
 strong{
     color: rgb(0, 0, 0);
