@@ -225,7 +225,7 @@ function renderizarPersonagens(){
     container.innerHTML = "";
 
     if (personagens.length === 0) {
-        container.innerHTML = "<p>Nenhum personagem cadastrado.</p>";
+        mostrarPopup("Nenhum personagem cadastrado");
         return;
       }
 
