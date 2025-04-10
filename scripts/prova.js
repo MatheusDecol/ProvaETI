@@ -142,6 +142,17 @@ function adicionarPersonagem() {
 
 // ===================================================================================================================== \\
 
+function removerPersonagem(id){
+    if(confirm("Desejar remover o Personagem")){
+        personagens = personagens.filter(p=> p.id !== id);
+        salvarPersonagens();
+        preencherSelectPersonagens();
+        renderizarPersonagens();
+    }
+}
+
+// ===================================================================================================================== \\
+
 function renderizarPersonagens(){
     const container = document.getElementById("listaPersonagens");
     container.innerHTML = "";
