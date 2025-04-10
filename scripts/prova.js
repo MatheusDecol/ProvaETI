@@ -421,12 +421,22 @@ function mostrarPopup(conteudoHTML) {
     const conteudo = document.getElementById("popup-content");
     conteudo.innerHTML = conteudoHTML;
     overlay.classList.remove("hidden");
+
+    document.addEventListener("keydown", fecharComTecla);
 }
 
 // ===================================================================================================================== \\
 
 function fecharPopup() {
     document.getElementById("popup-overlay").classList.add("hidden");
+
+    document.removeEventListener("keydown", fecharComTecla);
+}
+
+// ===================================================================================================================== \\
+
+function fecharComTecla(event) {
+    fecharPopup();
 }
 
 // ===================================================================================================================== \\
