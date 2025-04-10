@@ -169,6 +169,24 @@ function buscarPersonagemPorId(){
         resultado.innerHTML = "<p>Personagem não encontardo</p>"
         return;
     }
+
+    resultado.innerHTML = `
+    <h3>${personagem.nomeAventureiro} (${personagem.classe})</h3>
+    <p><strong>Nome:</strong> ${personagem.nome}</p>
+    <p><strong>Level:</strong> ${personagem.level}</p>
+    <p><strong>Força Total:</strong> ${personagem.getForcaTotal()}</p>
+    <p><strong>Defesa Total:</strong> ${personagem.getDefesaTotal()}</p>
+    <p><strong>Itens:</strong></p>
+    <ul>
+      ${
+        personagem.itens.length > 0
+          ? personagem.itens
+              .map(item => `<li>${item.nome} (${item.tipo})</li>`)
+              .join("")
+          : "<li>Sem itens</li>"
+      }
+    </ul>
+  `;
 }
 
 // ===================================================================================================================== \\
