@@ -28,9 +28,9 @@ class Personagem{
     
     adicionarItem(item){
         if(item.tipo == "Amuleto"){
-            const temAmuleto =this.itens.soma(i =>i.tipo == "Amuleto");
+            const temAmuleto =this.itens.some(i =>i.tipo == "Amuleto");
             if(temAmuleto){
-                throw new error("O Personagem ja tem amuleto");
+                throw new Error("O Personagem ja tem amuleto");
                 
             };
         }
@@ -205,6 +205,7 @@ function renderizarPersonagens(){
     div.className = "personagem";
     div.innerHTML = `
         <h3>${p.nomeAventureiro} (${p.classe})</h3>
+        <p><strong>ID:</strong> ${p.id}</p>
         <p><strong>Level:</strong> ${p.level}</p>
         <p><strong>Força Total:</strong> ${p.getForcaTotal()}</p>
         <p><strong>Defesa Total:</strong> ${p.getDefesaTotal()}</p>
