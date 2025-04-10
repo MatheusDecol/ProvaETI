@@ -36,9 +36,10 @@ Este projeto simula a gestão de personagens e seus itens mágicos com base nos 
 ## 🗂️ Estrutura do Projeto
 
 📦 ProvaETI
-|
+├── assets/
+│   └── background.svg      # Background da tela principal
 ├── views/
-│   └── prova.html            # Interface principal do CRUD
+│   └── prova.html          # Interface principal do CRUD
 ├── scripts/
 │   └── prova.js            # Lógica e funcionalidades em JavaScript (POO)
 ├── styles/
