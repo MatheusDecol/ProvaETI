@@ -158,6 +158,10 @@ function buscarPersonagemPorId(){
     const resultado = document.getElementById("resultadoBusca");
     resultado.innerHTML = "";
     
+    if(isNaN(id)){
+        resultado.innerHTML = "<p>ID Inválido</p>";
+        return
+    }
 }
 
 // ===================================================================================================================== \\
