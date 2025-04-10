@@ -153,6 +153,15 @@ function removerPersonagem(id){
 
 // ===================================================================================================================== \\
 
+function buscarPersonagemPorId(){
+    const  id = parseInt(document.getElementById("buscarId").value);
+    const resultado = document.getElementById("resultadoBusca");
+    resultado.innerHTML = "";
+    
+}
+
+// ===================================================================================================================== \\
+
 function renderizarPersonagens(){
     const container = document.getElementById("listaPersonagens");
     container.innerHTML = "";
