@@ -414,7 +414,10 @@ function buscarAmuletoDoPersonagem() {
 // ===================================================================================================================== \\
 
 function mostrarPopup(conteudoHTML) {
-    
+    const overlay = document.getElementById("popup-overlay");
+    const conteudo = document.getElementById("popup-content");
+    conteudo.innerHTML = conteudoHTML;
+    overlay.classList.remove("hidden");
 }
 
 // ===================================================================================================================== \\
