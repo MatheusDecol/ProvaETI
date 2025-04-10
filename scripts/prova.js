@@ -196,7 +196,18 @@ function atualizarNomeAventureiro(){
     const novoNome = document.getElementById("novoNomeAventureiro").value.trim();
     const resultado = document.getElementById("resultadoAtualizacao");
     resultado.innerHTML = "";
+
+    if (isNaN(id) || !novoNome) {
+        resultado.innerHTML = "<p>ID inválido ou nome vazio</p>";
+        return;
+    }
     
+      const personagem = personagens.find(p => p.id === id);
+    
+    if (!personagem) {
+        resultado.innerHTML = "<p>Personagem não encontrado</p>";
+        return;
+    }
 }
 
 // ===================================================================================================================== \\
