@@ -267,6 +267,7 @@ function removerItemDoPersonagem(personagemId, itemId) {
   if (personagem) {
     personagem.removerItemPorId(itemId);
     salvarPersonagens();
+    preencherSelectPersonagens();
     renderizarPersonagens();
   }
 }
