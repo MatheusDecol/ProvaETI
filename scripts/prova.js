@@ -341,6 +341,10 @@ function listarTodosItensMagicos(){
     });
     });
 
+    if (todosItens.length === 0) {
+        container.innerHTML = "<p>Nenhum item mágico cadastrado.</p>";
+        return;
+    }
 }
 
 // ===================================================================================================================== \\
