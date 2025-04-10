@@ -389,7 +389,14 @@ function buscarItemPorId(){
 // ===================================================================================================================== \\
 
 function buscarAmuletoDoPersonagem() {
-    
+    const id = parseInt(document.getElementById("idAmuleto").value);
+    const resultado = document.getElementById("resultadoAmuleto");
+
+    const personagem = personagens.find(p => p.id === id);
+    if (!personagem) {
+        resultado.innerHTML = "<p>Personagem não encontrado.</p>";
+        return;
+    }
 }
 
 // ===================================================================================================================== \\
