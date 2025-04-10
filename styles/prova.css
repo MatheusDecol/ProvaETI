@@ -62,6 +62,13 @@ h2 {
     text-shadow: 0.1rem 0.1rem 0.2rem #000;
 }
 
+.h3-itens {
+    font-size: 3.2rem;
+    color: #da83ff;
+    margin-top: 3rem;
+    text-shadow: 0.1rem 0.1rem 0.2rem #000;
+}
+
 .personagem, .item {
     background-color: rgba(0, 0, 0, 0.433);
     border: 0.2rem solid #4e23f9;
