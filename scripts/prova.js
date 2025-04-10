@@ -397,6 +397,18 @@ function buscarAmuletoDoPersonagem() {
         resultado.innerHTML = "<p>Personagem não encontrado.</p>";
         return;
     }
+
+    const amuleto = personagem.itens.find(i => i.tipo === "Amuleto");
+
+    if (amuleto) {
+        resultado.innerHTML = `
+        <h3>Amuleto encontrado</h3>
+        <p><strong>${amuleto.nome}</strong> - Força: ${amuleto.forca}, Defesa: ${amuleto.defesa}</p>
+        `;
+    } 
+    else {
+        resultado.innerHTML = "<p>Este personagem não possui amuleto.</p>";
+    }
 }
 
 // ===================================================================================================================== \\
