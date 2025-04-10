@@ -12,13 +12,15 @@ html{
 
 body {
     font-family: 'MedievalSharp', cursive;
-    background: url('https://i.imgur.com/80pDi4Y.jpg') no-repeat center center fixed;
+    background: url("../assets/background.svg")  no-repeat center center fixed;;
     background-size: cover;
     color: #fff;
     padding: 3rem;
     max-width: 80rem;
     margin: auto;
-  }
+    align-items: center;
+}
+
 
 input, select, textarea {
     display: block;
@@ -26,9 +28,9 @@ input, select, textarea {
     padding: 1rem;
     width: 100%;
     font-size: 1.6rem;
-    border: 2px solid #ccc;
+    border: 2px solid #4e23f9;
     border-radius: 0.5rem;
-    background-color: #fdf6e3;
+    background-color: #d4cfc2;
     color: #000;
 }
 
@@ -36,7 +38,7 @@ button {
     padding: 1rem 2rem;
     font-size: 1.6rem;
     margin-top: 1rem;
-    background-color: #a67c52;
+    background-color: #481060;
     border: none;
     border-radius: 0.5rem;
     color: #fff;
@@ -46,19 +48,23 @@ button {
 }
 
 button:hover {
-    background-color: #8b5e3c;  
+    background-color: #ad22e8;  
+}
+
+p{
+    font-size: 1.6rem;
 }
 
 h2 {
-    font-size: 2.4rem;
-    color: #f9d923;
+    font-size: 3.2rem;
+    color: #da83ff;
     margin-top: 3rem;
     text-shadow: 0.1rem 0.1rem 0.2rem #000;
 }
 
 .personagem, .item {
-    background-color: rgba(0, 0, 0, 0.6);
-    border: 2px solid #f9d923;
+    background-color: rgba(0, 0, 0, 0.433);
+    border: 2px solid #4e23f9;
     border-radius: 1rem;
     padding: 1.5rem;
     margin-top: 2rem;
@@ -67,7 +73,7 @@ h2 {
 
 .personagem h3 {
     font-size: 2rem;
-    color: #f0e68c;
+    color: #da3ff2;
     margin-bottom: 1rem;
 }
 
@@ -79,13 +85,14 @@ ul {
   
 li {
     margin-bottom: 0.5rem;  
+    font-size: 1.6rem;
 }
   
 #resultadoBusca, #resultadoItemBusca, #resultadoAmuleto, #resultadoAtualizacao {
     margin-top: 1rem;
     padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid #ccc;
+    background-color: rgba(65, 65, 65, 0.447);
+    border: 1px solid #4e23f9;
     border-radius: 0.5rem;
     font-size: 1.5rem;
 }
