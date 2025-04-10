@@ -191,6 +191,12 @@ function buscarPersonagemPorId(){
 
 // ===================================================================================================================== \\
 
+function atualizarNomeAventureiro(){
+    
+}
+
+// ===================================================================================================================== \\
+
 function renderizarPersonagens(){
     const container = document.getElementById("listaPersonagens");
     container.innerHTML = "";
