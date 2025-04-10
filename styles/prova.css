@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: sans-serif;
+    margin: 3rem;
+    background-color: rgb(8, 29, 147);
+    position: relative;
+    left: 40%;
+}
+
+input, textarea{
+    display:flex;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    width: 30rem;
+    font-size: 2rem;
+    border: 0.5rem solid #ccc;
+    border-radius: 0.4rem;
+}
+
+button {
+    padding: 1rem 1.2rem;
+    margin-right: 1rem;
+    margin-top: 3rem;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    color: rgb(11, 11, 11);
+    position: relative;
+    left: 6%;
+}
+
+button:hover{
+    opacity: 0.8;
+}
+
+button:nth-of-type(1){
+    background-color: rgb(61, 255, 47);
+}
+
+button:nth-of-type(2){
+    background-color: rgb(255, 47, 47);
+}
+
+h2{
+    margin-top: 2rem;
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: rgb(255, 255, 255);
+}
+
+strong{
+    color: rgb(0, 0, 0);
+    font-size: 2.5rem;
+    font-weight: 100;
+    margin: 0 0 10rem 0;
+    padding-bottom: 10rem;
+}
+
+span{
+    font-size: 1.8rem;
+    margin-top: 2rem;
+}
+
+.item{
+    background-color: rgba(187, 34, 243, 0.833);
+    border: 0.1rem solid #ea83ff;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1rem 0.6rem rgba(0, 0, 0, 0.107);
+    font-size: 1.8rem;
+    max-width: 30rem;
+}
+
+.personagem {
+    border: 0.1 rem solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.8rem;
+    max-width: 30rem;
+    background-color: #f9f9f9;
+  }
+  
