@@ -64,7 +64,7 @@ h2 {
 
 .personagem, .item {
     background-color: rgba(0, 0, 0, 0.433);
-    border: -0.2rem solid #4e23f9;
+    border: 0.2rem solid #4e23f9;
     border-radius: 1rem;
     padding: 1.5rem;
     margin-top: 2rem;
@@ -87,6 +87,51 @@ li {
     margin-bottom: 0.5rem;  
     font-size: 1.6rem;
 }
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+  
+.popup {
+    background-color: #1b1b1b;
+    border: 0.2rem solid #4e23f9;
+    padding: 2rem;
+    width: 90%;
+    max-width: 60rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 2rem #000;
+    font-family: 'MedievalSharp', cursive;
+    color: #fff;
+    position: relative;
+}
+  
+.popup h3 {
+    color: #e38cf0;
+    margin-bottom: 1rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #f92323;
+}
+  
+.hidden {
+    display: none;
+}
+  
   
 #resultadoBusca, #resultadoItemBusca, #resultadoAmuleto, #resultadoAtualizacao {
     margin-top: 1rem;
