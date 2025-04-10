@@ -138,6 +138,7 @@ function adicionarPersonagem() {
     document.getElementById("defesa").value = "";
 
     renderizarPersonagens();
+    preencherSelectPersonagens();
 }
 
 // ===================================================================================================================== \\
