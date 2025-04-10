@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -8,86 +10,143 @@ html{
     font-size: 62.5%;
 }
 
-body{
-    font-family: sans-serif;
-    margin: 3rem;
-    background-color: rgb(8, 29, 147);
-    position: relative;
-    left: 40%;
+body {
+    font-family: 'MedievalSharp', cursive;
+    background: url("../assets/background.svg")  no-repeat center center fixed;;
+    background-size: cover;
+    color: #fff;
+    padding: 3rem;
+    max-width: 80rem;
+    margin: auto;
+    align-items: center;
 }
 
-input, textarea{
-    display:flex;
+
+input, select, textarea {
+    display: block;
     margin-bottom: 1rem;
-    padding: 0.8rem;
-    width: 30rem;
-    font-size: 2rem;
-    border: 0.5rem solid #ccc;
-    border-radius: 0.4rem;
+    padding: 1rem;
+    width: 100%;
+    font-size: 1.6rem;
+    border: 0.2rem solid #4e23f9;
+    border-radius: 0.5rem;
+    background-color: #d4cfc2;
+    color: #000;
 }
 
 button {
-    padding: 1rem 1.2rem;
-    margin-right: 1rem;
-    margin-top: 3rem;
+    padding: 1rem 2rem;
     font-size: 1.6rem;
+    margin-top: 1rem;
+    background-color: #481060;
     border: none;
-    border-radius: 0.4rem;
+    border-radius: 0.5rem;
+    color: #fff;
     cursor: pointer;
-    color: rgb(11, 11, 11);
-    position: relative;
-    left: 6%;
+    transition: background-color 0.3s ease;
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(0,0,0,0.5);
 }
 
-button:hover{
-    opacity: 0.8;
+button:hover {
+    background-color: #ad22e8;  
 }
 
-button:nth-of-type(1){
-    background-color: rgb(61, 255, 47);
+p{
+    font-size: 1.6rem;
 }
 
-button:nth-of-type(2){
-    background-color: rgb(255, 47, 47);
+h2 {
+    font-size: 3.2rem;
+    color: #da83ff;
+    margin-top: 3rem;
+    text-shadow: 0.1rem 0.1rem 0.2rem #000;
 }
 
-h2{
-    margin-top: 2rem;
-    font-size: 2.4rem;
-    font-weight: 300;
-    color: rgb(255, 255, 255);
+.h3-itens {
+    font-size: 3.2rem;
+    color: #da83ff;
+    margin-top: 3rem;
+    text-shadow: 0.1rem 0.1rem 0.2rem #000;
 }
 
-strong{
-    color: rgb(0, 0, 0);
-    font-size: 2.5rem;
-    font-weight: 100;
-    margin: 0 0 10rem 0;
-    padding-bottom: 10rem;
-}
-
-span{
-    font-size: 1.8rem;
-    margin-top: 2rem;
-}
-
-.item{
-    background-color: rgba(187, 34, 243, 0.833);
-    border: 0.1rem solid #ea83ff;
+.personagem, .item {
+    background-color: rgba(0, 0, 0, 0.433);
+    border: 0.2rem solid #4e23f9;
     border-radius: 1rem;
     padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 1rem 0.6rem rgba(0, 0, 0, 0.107);
-    font-size: 1.8rem;
-    max-width: 30rem;
+    margin-top: 2rem;
+    font-size: 1.6rem;
 }
 
-.personagem {
-    border: 0.1 rem solid #ccc;
-    padding: 1rem;
+.personagem h3 {
+    font-size: 2rem;
+    color: #da3ff2;
     margin-bottom: 1rem;
-    border-radius: 0.8rem;
-    max-width: 30rem;
-    background-color: #f9f9f9;
-  }
+}
+
+ul {
+    margin-top: 1rem;
+    list-style: square;
+    padding-left: 2rem;
+}
   
+li {
+    margin-bottom: 0.5rem;  
+    font-size: 1.6rem;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+  
+.popup {
+    background-color: #1b1b1b;
+    border: 0.2rem solid #4e23f9;
+    padding: 2rem;
+    width: 90%;
+    max-width: 60rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 2rem #000;
+    font-family: 'MedievalSharp', cursive;
+    color: #fff;
+    position: relative;
+    font-size: 1.6rem;
+}
+
+.popup h3 {
+    color: #e38cf0;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #f92323;
+}
+  
+.hidden {
+    display: none;
+}
+  
+  
+#resultadoBusca, #resultadoItemBusca, #resultadoAmuleto, #resultadoAtualizacao {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: rgba(65, 65, 65, 0.447);
+    border: 0.1rem solid #4e23f9;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+}

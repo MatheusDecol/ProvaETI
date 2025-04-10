@@ -8,6 +8,13 @@
 </head>
 <body>
 
+    <div id="popup-overlay" class="popup-overlay hidden">
+        <div class="popup">
+          <span class="close-btn" onclick="fecharPopup()">&times;</span>
+          <div id="popup-content"></div>
+        </div>
+    </div>
+
     <h2>Cadastrar Personagem</h2>
     <input type="text" id="nome" placeholder="Nome">
     <input type="text" id="nomeAventureiro" placeholder="Nome Aventureiro">
@@ -39,14 +46,38 @@
     <input type="number" id="forcaItem" placeholder="Força" min="0" max="10">
     <input type="number" id="defesaItem" placeholder="Defesa" min="0" max="10">
     <select id="personagemItem">
-        <option value="">Selecionar Personagem</option>
+        <option value="listaPersonagens">Selecionar Personagem</option>
     </select>
 
     <button onclick="adicionarItemMagico()">Adicionar Item</button>
 
+    <h2>Buscar Personagem por ID</h2>
+    <input type="number" id="buscarId" placeholder="Digite o ID do personagem">
+    <button onclick="buscarPersonagemPorId()">Buscar</button>
+    <div id="resultadoBusca"></div>
+
     <h2>Lista de Personagens</h2>
     <div id="listaPersonagens"></div>
 
+    <h2>Listar Todos os Itens Mágicos</h2>
+    <button onclick="listarTodosItensMagicos()">Mostrar Itens</button>
+    <div id="resultadoItens"></div>
+
+    <h2>Buscar Item Mágico por ID</h2>
+    <input type="number" id="itemIdBusca" placeholder="Digite o ID do item">
+    <button onclick="buscarItemPorId()">Buscar</button>
+    <div id="resultadoItemBusca"></div>
+
+    <h2>Buscar Amuleto do Personagem</h2>
+    <input type="number" id="idAmuleto" placeholder="Digite o ID do personagem">
+    <button onclick="buscarAmuletoDoPersonagem()">Buscar Amuleto</button>
+    <div id="resultadoAmuleto"></div>
+
+    <h2>Atualizar Nome do Aventureiro por ID</h2>
+    <input type="number" id="atualizarId" placeholder="Digite o ID do personagem">
+    <input type="text" id="novoNomeAventureiro" placeholder="Novo nome do aventureiro">
+    <button onclick="atualizarNomeAventureiro()">Atualizar Nome</button>
+    <div id="resultadoAtualizacao"></div>
 
     <script src="../scripts/prova.js"></script>
 </body>

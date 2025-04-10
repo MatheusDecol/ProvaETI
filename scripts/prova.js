@@ -28,9 +28,9 @@ class Personagem{
     
     adicionarItem(item){
         if(item.tipo == "Amuleto"){
-            const temAmuleto =this.itens.soma(i =>i.tipo == "Amuleto");
+            const temAmuleto =this.itens.some(i =>i.tipo == "Amuleto");
             if(temAmuleto){
-                throw new error("O Personagem ja tem amuleto");
+                throw new Error("O Personagem ja tem amuleto");
                 
             };
         }
@@ -49,11 +49,11 @@ class Personagem{
 class ItemMagico{
     constructor (id, nome, tipo, forca, defesa) {
         if(forca < 0 || defesa < 0 || forca > 10 || defesa > 10){
-            throw new error("A força e defesa devem ter valores de 0 a 10");
+            throw new Error("A força e defesa devem ter valores de 0 a 10");
         }
 
         if(forca == 0 && defesa == 0){
-            throw new error("Um item não pode ter foça e defesas iguais a zero");
+            throw new Error("Um item não pode ter foça e defesas iguais a zero");
         }
 
         if (tipo === "Arma" && defesa !== 0) {
@@ -114,12 +114,12 @@ function adicionarPersonagem() {
     const defesa = parseInt(document.getElementById("defesa").value);
   
     if (!nome || !nomeAventureiro || !classe || isNaN(level) || isNaN(forca) || isNaN(defesa)) {
-      alert("Preencha todos os campos corretamente.");
-      return;
+        mostrarPopup("Preencha todos os campos corretamente!");
+        return;
     }
 
     if (forca + defesa !== 10) {
-        alert("A soma de força e defesa deve ser exatamente 10.");
+        mostrarPopup("A soma de força e defesa deve ser exatamente 10");
         return;
     }
     
@@ -128,7 +128,7 @@ function adicionarPersonagem() {
     
     personagens.push(novoPersonagem);
     salvarPersonagens();
-    alert("Personagem cadastrado com sucesso!");
+    mostrarPopup("Personagem cadastrado com sucesso!");
     
     document.getElementById("nome").value = "";
     document.getElementById("nomeAventureiro").value = "";
@@ -138,6 +138,85 @@ function adicionarPersonagem() {
     document.getElementById("defesa").value = "";
 
     renderizarPersonagens();
+    preencherSelectPersonagens();
+}
+
+// ===================================================================================================================== \\
+
+function removerPersonagem(id){
+    if(confirm("Deseja remover o Personagem")){
+        personagens = personagens.filter(p=> p.id !== id);
+        salvarPersonagens();
+        preencherSelectPersonagens();
+        renderizarPersonagens();
+        mostrarPopup("Personagem removido com sucesso!");
+    }
+}
+
+// ===================================================================================================================== \\
+
+function buscarPersonagemPorId(){
+    const  id = parseInt(document.getElementById("buscarId").value);
+    const resultado = document.getElementById("resultadoBusca");
+    resultado.innerHTML = "";
+    
+    if(isNaN(id)){
+        resultado.innerHTML = "<p>ID Inválido</p>";
+        return;
+    }
+
+    const personagem = personagens.find(p => p.id === id);
+
+    if(!personagem){
+        mostrarPopup("Personagem não encontrado");
+    }
+
+    resultado.innerHTML = `
+    <h3>${personagem.nomeAventureiro} (${personagem.classe})</h3>
+    <p><strong>Nome:</strong> ${personagem.nome}</p>
+    <p><strong>Level:</strong> ${personagem.level}</p>
+    <p><strong>Força Total:</strong> ${personagem.getForcaTotal()}</p>
+    <p><strong>Defesa Total:</strong> ${personagem.getDefesaTotal()}</p>
+    <p><strong>Itens:</strong></p>
+    <ul>
+      ${
+        personagem.itens.length > 0
+          ? personagem.itens
+              .map(item => `<li>${item.nome} (${item.tipo})</li>`)
+              .join("")
+          : "<li>Sem itens</li>"
+      }
+    </ul>
+  `;
+}
+
+// ===================================================================================================================== \\
+
+function atualizarNomeAventureiro(){
+    const id = parseInt(document.getElementById("atualizarId").value);
+    const novoNome = document.getElementById("novoNomeAventureiro").value.trim();
+    const resultado = document.getElementById("resultadoAtualizacao");
+    resultado.innerHTML = "";
+
+    if (isNaN(id) || !novoNome) {
+        mostrarPopup("ID inválido ou nome vazio");
+        return;
+    }
+    
+      const personagem = personagens.find(p => p.id === id);
+    
+    if (!personagem) {
+        mostrarPopup("Personagem não encontrado");
+        return;
+    }
+
+    personagem.nomeAventureiro = novoNome;
+    salvarPersonagens();
+    renderizarPersonagens();
+
+    mostrarPopup("Nome do aventureiro atualizado com sucesso!");
+    document.getElementById("atualizarId").value = "";
+    document.getElementById("novoNomeAventureiro").value = "";
 }
 
 // ===================================================================================================================== \\
@@ -147,7 +226,7 @@ function renderizarPersonagens(){
     container.innerHTML = "";
 
     if (personagens.length === 0) {
-        container.innerHTML = "<p>Nenhum personagem cadastrado.</p>";
+        mostrarPopup("Nenhum personagem cadastrado");
         return;
       }
 
@@ -156,6 +235,7 @@ function renderizarPersonagens(){
     div.className = "personagem";
     div.innerHTML = `
         <h3>${p.nomeAventureiro} (${p.classe})</h3>
+        <p><strong>ID:</strong> ${p.id}</p>
         <p><strong>Level:</strong> ${p.level}</p>
         <p><strong>Força Total:</strong> ${p.getForcaTotal()}</p>
         <p><strong>Defesa Total:</strong> ${p.getDefesaTotal()}</p>
@@ -166,7 +246,7 @@ function renderizarPersonagens(){
             ? p.itens
                 .map(
                     item =>
-                    `<li>${item.nome} (${item.tipo}) 
+                    `<li><strong>ID:</strong> ${item.id} - ${item.nome} (${item.tipo}) 
                         <button onclick="removerItemDoPersonagem(${p.id}, ${item.id})">Remover Item</button>
                     </li>`
                 )
@@ -188,7 +268,9 @@ function removerItemDoPersonagem(personagemId, itemId) {
   if (personagem) {
     personagem.removerItemPorId(itemId);
     salvarPersonagens();
+    preencherSelectPersonagens();
     renderizarPersonagens();
+    mostrarPopup("Item removido com sucesso!");
   }
 }
 
@@ -216,7 +298,7 @@ function adicionarItemMagico(){
     const personagemId = parseInt(document.getElementById("personagemItem").value);
 
     if (!nome || !tipo || isNaN(forca) || isNaN(defesa) || isNaN(personagemId)) {
-        alert("Preencha todos os campos corretamente.");
+        mostrarPopup("Preencha todos os campos corretamente!");
         return;
     }
 
@@ -225,13 +307,13 @@ function adicionarItemMagico(){
         const personagem = personagens.find(p => p.id === personagemId);
     
     if (!personagem) {
-        alert("Personagem não encontrado.");
+        mostrarPopup("Personagem não encontrado");
         return;
     }
     
     personagem.adicionarItem(item);
     salvarPersonagens();
-    alert("Item adicionado ao personagem com sucesso!");
+    mostrarPopup("Item adicionado ao personagem com sucesso!");
     
     document.getElementById("nomeItem").value = "";
     document.getElementById("tipoItem").value = "";
@@ -242,9 +324,119 @@ function adicionarItemMagico(){
     renderizarPersonagens(); 
 
     } catch (erro) {
-        alert("Erro ao adicionar item: " + erro.message);
+        mostrarPopup("Erro ao adicionar item: " + erro.message);
     }
     
+}
+
+// ===================================================================================================================== \\
+
+function listarTodosItensMagicos(){
+    const container = document.getElementById("resultadoItens");
+    let todosItens = [];
+
+    personagens.forEach(p => {
+    p.itens.forEach(item => {
+        todosItens.push({
+        personagem: p.nomeAventureiro,
+        ...item
+        });
+    });
+    });
+
+    if (todosItens.length === 0) {
+        container.innerHTML = "<p>Nenhum item mágico cadastrado.</p>";
+        return;
+    }
+
+    container.innerHTML = `
+    <h3 class= "h3-itens">Todos os Itens Mágicos</h3>
+    <ul>
+      ${todosItens.map(item => `
+        <li><strong>${item.nome}</strong> (${item.tipo}) - <em>ID: ${item.id}</em> | Força: ${item.forca}, Defesa: ${item.defesa}, Aventureiro: ${item.personagem}</li>
+      `).join("")}
+    </ul>
+  `;
+
+}
+
+// ===================================================================================================================== \\
+
+function buscarItemPorId(){
+    const id = parseInt(document.getElementById("itemIdBusca").value);
+    const resultado = document.getElementById("resultadoItemBusca");
+  
+    if (isNaN(id)) {
+        resultado.innerHTML = "<p>ID inválido.</p>";
+        return;
+    }
+
+    for (let p of personagens) {
+        const item = p.itens.find(i => i.id === id);
+        if (item) {
+            resultado.innerHTML = `
+            <h3>Item Encontrado</h3>
+            <p><strong>Nome:</strong> ${item.nome}</p>
+            <p><strong>Tipo:</strong> ${item.tipo}</p>
+            <p><strong>Força:</strong> ${item.forca}</p>
+            <p><strong>Defesa:</strong> ${item.defesa}</p>
+            <p><strong>Personagem:</strong> ${p.nomeAventureiro}</p>
+          `;
+          return;
+        }
+      }
+    
+      resultado.innerHTML = "<p>Item não encontrado.</p>";
+}
+
+// ===================================================================================================================== \\
+
+function buscarAmuletoDoPersonagem() {
+    const id = parseInt(document.getElementById("idAmuleto").value);
+    const resultado = document.getElementById("resultadoAmuleto");
+
+    const personagem = personagens.find(p => p.id === id);
+    if (!personagem) {
+        resultado.innerHTML = "<p>Personagem não encontrado.</p>";
+        return;
+    }
+
+    const amuleto = personagem.itens.find(i => i.tipo === "Amuleto");
+
+    if (amuleto) {
+        resultado.innerHTML = `
+        <h3>Amuleto encontrado</h3>
+        <p><strong>${amuleto.nome}</strong> - Força: ${amuleto.forca}, Defesa: ${amuleto.defesa}</p>
+        `;
+    } 
+    else {
+        resultado.innerHTML = "<p>Este personagem não possui amuleto.</p>";
+    }
+}
+
+// ===================================================================================================================== \\
+
+function mostrarPopup(conteudoHTML) {
+    const overlay = document.getElementById("popup-overlay");
+    const conteudo = document.getElementById("popup-content");
+    conteudo.innerHTML = conteudoHTML;
+    overlay.classList.remove("hidden");
+
+    document.addEventListener("keydown", fecharComTecla);
+}
+
+// ===================================================================================================================== \\
+
+function fecharPopup() {
+    document.getElementById("popup-overlay").classList.add("hidden");
+
+    document.removeEventListener("keydown", fecharComTecla);
+}
+
+// ===================================================================================================================== \\
+
+function fecharComTecla(event) {
+    fecharPopup();
 }
 
 // ===================================================================================================================== \\
