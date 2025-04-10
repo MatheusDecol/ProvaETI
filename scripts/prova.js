@@ -329,7 +329,18 @@ function adicionarItemMagico(){
 // ===================================================================================================================== \\
 
 function listarTodosItensMagicos(){
-    
+    const container = document.getElementById("resultadoItens");
+    let todosItens = [];
+
+    personagens.forEach(p => {
+    p.itens.forEach(item => {
+        todosItens.push({
+        personagem: p.nomeAventureiro,
+        ...item
+        });
+    });
+    });
+
 }
 
 // ===================================================================================================================== \\
