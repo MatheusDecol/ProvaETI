@@ -350,7 +350,7 @@ function listarTodosItensMagicos(){
     }
 
     container.innerHTML = `
-    <h3>Todos os Itens Mágicos</h3>
+    <h3 class= "h3-itens">Todos os Itens Mágicos</h3>
     <ul>
       ${todosItens.map(item => `
         <li><strong>${item.nome}</strong> (${item.tipo}) - <em>ID: ${item.id}</em> | Força: ${item.forca}, Defesa: ${item.defesa}, Aventureiro: ${item.personagem}</li>
