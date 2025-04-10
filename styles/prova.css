@@ -10,13 +10,15 @@ html{
     font-size: 62.5%;
 }
 
-body{
-    font-family: sans-serif;
-    margin: 3rem;
-    background-color: rgb(8, 29, 147);
-    position: relative;
-    left: 40%;
-}
+body {
+    font-family: 'MedievalSharp', cursive;
+    background: url('https://i.imgur.com/80pDi4Y.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    padding: 3rem;
+    max-width: 80rem;
+    margin: auto;
+  }
 
 input, textarea{
     display:flex;
