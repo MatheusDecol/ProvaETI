@@ -367,6 +367,23 @@ function buscarItemPorId(){
         resultado.innerHTML = "<p>ID inválido.</p>";
         return;
     }
+
+    for (let p of personagens) {
+        const item = p.itens.find(i => i.id === id);
+        if (item) {
+            resultado.innerHTML = `
+            <h3>Item Encontrado</h3>
+            <p><strong>Nome:</strong> ${item.nome}</p>
+            <p><strong>Tipo:</strong> ${item.tipo}</p>
+            <p><strong>Força:</strong> ${item.forca}</p>
+            <p><strong>Defesa:</strong> ${item.defesa}</p>
+            <p><strong>Personagem:</strong> ${p.nomeAventureiro}</p>
+          `;
+          return;
+        }
+      }
+    
+      resultado.innerHTML = "<p>Item não encontrado.</p>";
 }
 
 // ===================================================================================================================== \\
