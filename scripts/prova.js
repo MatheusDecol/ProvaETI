@@ -208,6 +208,14 @@ function atualizarNomeAventureiro(){
         resultado.innerHTML = "<p>Personagem não encontrado</p>";
         return;
     }
+
+    personagem.nomeAventureiro = novoNome;
+    salvarPersonagens();
+    renderizarPersonagens();
+
+    resultado.innerHTML = `<p>Nome do aventureiro atualizado com sucesso!</p>`;
+    document.getElementById("atualizarId").value = "";
+    document.getElementById("novoNomeAventureiro").value = "";
 }
 
 // ===================================================================================================================== \\
