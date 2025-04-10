@@ -114,12 +114,12 @@ function adicionarPersonagem() {
     const defesa = parseInt(document.getElementById("defesa").value);
   
     if (!nome || !nomeAventureiro || !classe || isNaN(level) || isNaN(forca) || isNaN(defesa)) {
-      alert("Preencha todos os campos corretamente.");
-      return;
+        mostrarPopup("Preencha todos os campos corretamente!");
+        return;
     }
 
     if (forca + defesa !== 10) {
-        alert("A soma de força e defesa deve ser exatamente 10.");
+        mostrarPopup("A soma de força e defesa deve ser exatamente 10");
         return;
     }
     
@@ -128,7 +128,7 @@ function adicionarPersonagem() {
     
     personagens.push(novoPersonagem);
     salvarPersonagens();
-    alert("Personagem cadastrado com sucesso!");
+    mostrarPopup("Personagem cadastrado com sucesso!");
     
     document.getElementById("nome").value = "";
     document.getElementById("nomeAventureiro").value = "";
@@ -148,6 +148,7 @@ function removerPersonagem(id){
         salvarPersonagens();
         preencherSelectPersonagens();
         renderizarPersonagens();
+        mostrarPopup("Personagem removido com sucesso!");
     }
 }
 
@@ -166,8 +167,7 @@ function buscarPersonagemPorId(){
     const personagem = personagens.find(p => p.id === id);
 
     if(!personagem){
-        resultado.innerHTML = "<p>Personagem não encontardo</p>"
-        return;
+        mostrarPopup("Personagem não encontrado");
     }
 
     resultado.innerHTML = `
@@ -198,14 +198,14 @@ function atualizarNomeAventureiro(){
     resultado.innerHTML = "";
 
     if (isNaN(id) || !novoNome) {
-        resultado.innerHTML = "<p>ID inválido ou nome vazio</p>";
+        mostrarPopup("ID inválido ou nome vazio");
         return;
     }
     
       const personagem = personagens.find(p => p.id === id);
     
     if (!personagem) {
-        resultado.innerHTML = "<p>Personagem não encontrado</p>";
+        mostrarPopup("Personagem não encontrado");
         return;
     }
 
@@ -213,7 +213,7 @@ function atualizarNomeAventureiro(){
     salvarPersonagens();
     renderizarPersonagens();
 
-    resultado.innerHTML = `<p>Nome do aventureiro atualizado com sucesso!</p>`;
+    mostrarPopup("Nome do aventureiro atualizado com sucesso!");
     document.getElementById("atualizarId").value = "";
     document.getElementById("novoNomeAventureiro").value = "";
 }
@@ -269,6 +269,7 @@ function removerItemDoPersonagem(personagemId, itemId) {
     salvarPersonagens();
     preencherSelectPersonagens();
     renderizarPersonagens();
+    mostrarPopup("Item removido com sucesso!");
   }
 }
 
@@ -296,7 +297,7 @@ function adicionarItemMagico(){
     const personagemId = parseInt(document.getElementById("personagemItem").value);
 
     if (!nome || !tipo || isNaN(forca) || isNaN(defesa) || isNaN(personagemId)) {
-        alert("Preencha todos os campos corretamente.");
+        mostrarPopup("Preencha todos os campos corretamente!");
         return;
     }
 
@@ -305,13 +306,13 @@ function adicionarItemMagico(){
         const personagem = personagens.find(p => p.id === personagemId);
     
     if (!personagem) {
-        alert("Personagem não encontrado.");
+        mostrarPopup("Personagem não encontrado");
         return;
     }
     
     personagem.adicionarItem(item);
     salvarPersonagens();
-    alert("Item adicionado ao personagem com sucesso!");
+    mostrarPopup("Item adicionado ao personagem com sucesso!");
     
     document.getElementById("nomeItem").value = "";
     document.getElementById("tipoItem").value = "";
@@ -322,7 +323,7 @@ function adicionarItemMagico(){
     renderizarPersonagens(); 
 
     } catch (erro) {
-        alert("Erro ao adicionar item: " + erro.message);
+        mostrarPopup("Erro ao adicionar item: " + erro.message);
     }
     
 }
