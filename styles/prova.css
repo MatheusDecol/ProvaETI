@@ -112,11 +112,13 @@ li {
     font-family: 'MedievalSharp', cursive;
     color: #fff;
     position: relative;
+    font-size: 1.6rem;
 }
-  
+
 .popup h3 {
     color: #e38cf0;
     margin-bottom: 1rem;
+    font-size: 1.6rem;
 }
 
 .close-btn {
