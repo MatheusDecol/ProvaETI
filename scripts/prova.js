@@ -246,7 +246,7 @@ function renderizarPersonagens(){
             ? p.itens
                 .map(
                     item =>
-                    `<li>${item.nome} (${item.tipo}) 
+                    `<li><strong>ID:</strong> ${item.id} - ${item.nome} (${item.tipo}) 
                         <button onclick="removerItemDoPersonagem(${p.id}, ${item.id})">Remover Item</button>
                     </li>`
                 )
@@ -353,7 +353,7 @@ function listarTodosItensMagicos(){
     <h3>Todos os Itens Mágicos</h3>
     <ul>
       ${todosItens.map(item => `
-        <li><strong>${item.nome}</strong> (${item.tipo}) - Força: ${item.forca}, Defesa: ${item.defesa}, Aventureiro: ${item.personagem}</li>
+        <li><strong>${item.nome}</strong> (${item.tipo}) - <em>ID: ${item.id}</em> | Força: ${item.forca}, Defesa: ${item.defesa}, Aventureiro: ${item.personagem}</li>
       `).join("")}
     </ul>
   `;
