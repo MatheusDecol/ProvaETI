@@ -360,7 +360,13 @@ function listarTodosItensMagicos(){
 // ===================================================================================================================== \\
 
 function buscarItemPorId(){
-    
+    const id = parseInt(document.getElementById("itemIdBusca").value);
+    const resultado = document.getElementById("resultadoItemBusca");
+  
+    if (isNaN(id)) {
+        resultado.innerHTML = "<p>ID inválido.</p>";
+        return;
+    }
 }
 
 // ===================================================================================================================== \\
