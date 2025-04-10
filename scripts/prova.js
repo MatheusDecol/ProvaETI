@@ -192,6 +192,10 @@ function buscarPersonagemPorId(){
 // ===================================================================================================================== \\
 
 function atualizarNomeAventureiro(){
+    const id = parseInt(document.getElementById("atualizarId").value);
+    const novoNome = document.getElementById("novoNomeAventureiro").value.trim();
+    const resultado = document.getElementById("resultadoAtualizacao");
+    resultado.innerHTML = "";
     
 }
 
