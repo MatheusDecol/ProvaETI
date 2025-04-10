@@ -143,7 +143,7 @@ function adicionarPersonagem() {
 // ===================================================================================================================== \\
 
 function removerPersonagem(id){
-    if(confirm("Desejar remover o Personagem")){
+    if(confirm("Deseja remover o Personagem")){
         personagens = personagens.filter(p=> p.id !== id);
         salvarPersonagens();
         preencherSelectPersonagens();
