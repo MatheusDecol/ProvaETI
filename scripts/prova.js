@@ -160,7 +160,14 @@ function buscarPersonagemPorId(){
     
     if(isNaN(id)){
         resultado.innerHTML = "<p>ID Inválido</p>";
-        return
+        return;
+    }
+
+    const personagem = personagens.find(p => p.id === id);
+
+    if(!personagem){
+        resultado.innerHTML = "<p>Personagem não encontardo</p>"
+        return;
     }
 }
 
